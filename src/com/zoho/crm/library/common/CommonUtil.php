@@ -9,6 +9,7 @@ class CommonUtil
 			while(!feof($fileHandler))
 			{
 				$line=fgets($fileHandler);
+				if(empty($line)) continue;
 				$lineAfterSplit=explode("=",$line);
 				if(strpos($lineAfterSplit[0],"#")===false)
 				{
@@ -23,7 +24,7 @@ class CommonUtil
 		}
 		return $reponseMap;
 	}
-	
+
 	public static function getEmptyJSONObject()
 	{
 		return new ArrayObject();
